@@ -9,11 +9,19 @@ const {updatePersonService} = personService
 const getAllPersons = async(req, res) => {
     const query = req.query
     var nameAndEmail = ''
+    var orderBy = ''
+    var order = ''
     if('nameAndEmail' in query){
         nameAndEmail = query.nameAndEmail
     }
+    if('orderBy' in query){
+        orderBy = query.orderBy
+    }
+    if('order' in query){
+        order = query.order
+    }
     try{
-        var persons = await getAllPersonsService(nameAndEmail)
+        var persons = await getAllPersonsService(nameAndEmail, orderBy, order)
         res.status(200).send(persons)
     }
     catch(e){

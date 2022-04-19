@@ -1,8 +1,7 @@
 const db = require('./database')
 
-const getAllPersons = async (nameAndEmail) => {
-    
-    const sqlQuery = `SELECT * FROM persons WHERE firstname LIKE '%${nameAndEmail}%' OR lastname LIKE '%${nameAndEmail}%' OR email LIKE '%${nameAndEmail}%'`
+const getAllPersons = async (nameAndEmail, orderBy, order) => {
+    const sqlQuery = `SELECT * FROM persons WHERE firstname LIKE '%${nameAndEmail}%' OR lastname LIKE '%${nameAndEmail}%' OR email LIKE '%${nameAndEmail}%' ORDER BY ${orderBy} ${order}`
     return new Promise((resolve, reject) => {
         db.query(sqlQuery, (err, persons) => {
             if(err){
