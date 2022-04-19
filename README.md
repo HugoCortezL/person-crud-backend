@@ -28,7 +28,7 @@ Creating this project to train my knowledge acquired in Node.js and MySql. This 
 * [X] DeletePerson
 * [X] Filter Person By Name || Email
 * [ ] Filter Person By Gender
-* [ ] Sort Person By Name || Email || Gender || Age
+* [X] Sort Person By Name || Email || Gender || Age
 * [ ] Create pagination in all persons
 
 <h2 id="pre">Prerequisites ✏️</h2>
