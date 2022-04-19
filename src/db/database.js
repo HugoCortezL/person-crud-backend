@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
     host: "localhost",
     user: "username", //Change to the your mysql username
     password: "password", //Change to the your mysql password
-    database: "persons"
+    database: "persons" //You have to create early
 })
 
 connection.connect(function(err){
