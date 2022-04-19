@@ -48,6 +48,12 @@ $ cd person-crud-backend
  
 # Install all dependencies
 $ npm install
+
+# SETUP DATABASE
+#First you have to open de mysql command line client - unicode. And enter
+$ CREATE DATABASE persons
+
+#Next you have to use your username and password on src/db/database.js
  
 # Start the service
 $ npm start
