@@ -1,8 +1,8 @@
 const personDb = require('../db/persons.db')
 
-const getAllPersonsService = async () => {
+const getAllPersonsService = async (nameAndEmail) => {
     try{
-        var persons = await personDb.getAllPersons()
+        var persons = await personDb.getAllPersons(nameAndEmail)
         return persons
     }
     catch(e){

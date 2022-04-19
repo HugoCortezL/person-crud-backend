@@ -1,7 +1,8 @@
 const db = require('./database')
 
-const getAllPersons = async () => {
-    const sqlQuery = `SELECT * FROM persons`
+const getAllPersons = async (nameAndEmail) => {
+    
+    const sqlQuery = `SELECT * FROM persons WHERE firstname LIKE '%${nameAndEmail}%' OR lastname LIKE '%${nameAndEmail}%' OR email LIKE '%${nameAndEmail}%'`
     return new Promise((resolve, reject) => {
         db.query(sqlQuery, (err, persons) => {
             if(err){
@@ -27,7 +28,6 @@ const getPersonById = async (id) => {
 }
 
 const createPerson = async (person) => {
-    console.log(person.gender)
     var sqlQuery = `INSERT INTO persons (firstname, lastname, email, gender, phone, birthdate, active) VALUES ('${person.firstname}', '${person.lastname}', '${person.email}', '${person.gender}', '${person.phone}', '${person.birthdate}', '${person.active}')`;
     return new Promise((resolve, reject) => {
         db.query(sqlQuery, function (err, personCreated) {

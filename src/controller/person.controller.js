@@ -7,8 +7,13 @@ const {deletePersonService} = personService
 const {updatePersonService} = personService
 
 const getAllPersons = async(req, res) => {
+    const query = req.query
+    var nameAndEmail = ''
+    if('nameAndEmail' in query){
+        nameAndEmail = query.nameAndEmail
+    }
     try{
-        var persons = await getAllPersonsService()
+        var persons = await getAllPersonsService(nameAndEmail)
         res.status(200).send(persons)
     }
     catch(e){
